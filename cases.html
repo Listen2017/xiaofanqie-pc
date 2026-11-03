@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天津电脑维修案例｜笔记本维修、数据恢复、勒索病毒应急实录 - 小番茄电脑维修</title>
+<meta name="description" content="16 个真实电脑维修案例（天津全境上门）：笔记本加装固态提速、硬盘开盘数据恢复、勒索病毒应急、进水主板修复、服务器RAID抢修、旧机整批回收、办公网络与监控部署，以及机房服务器上下架与机柜迁移。附判断思路与处理结果。">
+<meta name="keywords" content="电脑维修案例,数据恢复案例,勒索病毒恢复,笔记本维修,服务器RAID恢复,机房上下架,服务器上架案例">
+<link rel="canonical" href="https://www.example.com/cases.html">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231553d6'/%3E%3Cpath d='M9 11h14v10H9z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M7 24h18' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+  .filter-btn {
+    padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line);
+    background: #fff; color: var(--ink-2); font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: all .18s; font-family: inherit;
+  }
+  .filter-btn:hover { border-color: #c2d3ef; color: var(--brand); }
+  .filter-btn.active { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 6px 16px rgba(21,83,214,.24); }
+  .case.is-hidden { display: none; }
+  .case-figure {
+    height: 8px;
+    background: linear-gradient(90deg, var(--brand), #6ba2ff);
+  }
+  .case-figure.biz { background: linear-gradient(90deg, var(--accent), #ffa06a); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-note">
+      <span>🕗 每日 08:30 - 20:30 接单</span>
+      <span>天津全境可上门 · 市区 30 分钟响应</span>
+    </div>
+    <div>报修热线：<a href="tel:+8613602028219">136-0202-8219</a>（微信同号）</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </span>
+      <span>小番茄电脑维修<small>TOMATO PC REPAIR</small></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="services.html">服务范围</a>
+      <a href="cases.html" class="active">维修案例</a>
+      <a href="tips.html">维修技巧</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-ghost" href="contact.html">在线报修</a>
+      <a class="btn btn-primary" href="tel:+8613602028219">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        136-0202-8219
+      </a>
+      <button class="menu-toggle" aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <div class="inner">
+    <button class="close" aria-label="关闭菜单">×</button>
+    <a href="index.html">首页</a>
+    <a href="services.html">服务范围</a>
+    <a href="cases.html">维修案例</a>
+    <a href="tips.html">维修技巧</a>
+    <a href="contact.html">联系我们</a>
+    <a class="btn btn-primary" href="tel:+8613602028219">立即拨打 136-0202-8219</a>
+  </div>
+</div>
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">首页</a><span>/</span>维修案例</div>
+    <h1>维修案例实录</h1>
+    <p>客户信息已做脱敏处理，故障现象、判断过程和处理结果都保留了原样。看看有没有和你相似的情况——很多故障，听描述就能猜个八九不离十。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">全部案例（16）</button>
+      <button class="filter-btn" data-filter="person">个人用户</button>
+      <button class="filter-btn" data-filter="biz">企业客户</button>
+      <button class="filter-btn" data-filter="data">数据恢复</button>
+      <button class="filter-btn" data-filter="urgent">紧急故障</button>
+    </div>
+
+    <div class="grid grid-3" id="case-grid">
+
+      <article class="case reveal" data-cat="person">
+        <div class="case-figure"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>个人用户</span><span class="dot"></span><span>升级提速</span></div>
+          <h3>用了 5 年的笔记本，开机要 3 分钟</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>开机转圈 3 分钟，一开浏览器磁盘占用 100%，风扇持续高转。</div>
+          <div class="case-row"><b>判断过程</b>资源监视器显示磁盘队列长期大于 3；CrystalDiskInfo 显示机械盘通电 2.1 万小时、重映射扇区增长。</div>
+          <div class="case-row"><b>处理方式</b>机械盘换 512G NVMe 固态，加装 8G 内存，清灰换硅脂，用工具做系统迁移（不重装，软件环境保留）。</div>
+          <div class="case-result">结果：开机 14 秒，日常办公无卡顿 · 用时 2 小时 · 460 元（含配件）</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz data urgent">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>数据恢复</span></div>
+          <h3>财务电脑硬盘异响，6 年账套只在这台机器上</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>2.5 寸机械盘通电「咔咔」响，BIOS 不识别，客户已自行通电尝试十几次。</div>
+          <div class="case-row"><b>判断过程</b>磁头撞击声 + 不识别，判定磁头组件损坏，属于物理故障，禁止再通电。</div>
+          <div class="case-row"><b>处理方式</b>无尘台开盘，更换匹配磁头组件，整盘镜像到新盘后逐目录校验，导出账套与备份文件。</div>
+          <div class="case-result">结果：数据恢复率约 97%，账套可直接打开 · 用时 3 天 · 物理恢复项目</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz urgent">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>病毒应急</span></div>
+          <h3>设计公司 12 台电脑集体中勒索病毒</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>共享盘文件全部变成 .locked 后缀，桌面弹出索要比特币的窗口，员工在互相传文件。</div>
+          <div class="case-row"><b>判断过程</b>询问后确认最先出问题的是装了破解版设计插件的机器，共享盘映射成了病毒横向传播的通道。</div>
+          <div class="case-row"><b>处理方式</b>先物理断网隔离全部机器；确认入口后，用 NAS 里 3 天前的离线备份恢复共享盘；其余机器全盘重装并部署软件白名单。</div>
+          <div class="case-result">结果：48 小时恢复办公，仅损失 1 天新增文件 · 后续部署每日增量备份</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="person">
+        <div class="case-figure"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>个人用户</span><span class="dot"></span><span>进液维修</span></div>
+          <h3>咖啡洒进键盘，客户先开机试了一下</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>键盘大面积失灵，开机电流异常，屏幕不亮。</div>
+          <div class="case-row"><b>判断过程</b>拆机发现主板供电区域有糖分结晶与铜箔发绿腐蚀，键盘排线接口氧化。</div>
+          <div class="case-row"><b>处理方式</b>超声波清洗主板，去除腐蚀物并补焊断线；更换键盘总成与排线；48 小时恒温烘干后通电测试。</div>
+          <div class="case-result">结果：正常开机，键盘全部按键恢复 · 用时 2 天 · 420 元（含键盘配件）</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>批量保养</span></div>
+          <h3>培训教室 40 台一体机集体过热降频</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>夏季上课时机器越用越慢，多台自动关机，风扇声音像吹风机。</div>
+          <div class="case-row"><b>判断过程</b>抽检 5 台，出风口温度普遍 75℃ 以上，散热鳍片被粉尘完全堵死。</div>
+          <div class="case-row"><b>处理方式</b>分两批（不影响上课）拆机清灰、换硅脂、更换老化风扇 7 个；同时把机器离地高度抬高 5cm 改善进风。</div>
+          <div class="case-result">结果：满载温度下降约 18℃，无自动关机 · 用时 3 个晚间 · 按台计价</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="person">
+        <div class="case-figure"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>个人用户</span><span class="dot"></span><span>游戏本</span></div>
+          <h3>游戏本打游戏掉帧，帧数从 90 掉到 30</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>开局 10 分钟后帧数断崖式下跌，机身烫手，风扇满转。</div>
+          <div class="case-row"><b>判断过程</b>监测到 CPU 温度撞到 98℃ 温度墙后降频；硅脂已干裂成粉状。</div>
+          <div class="case-row"><b>处理方式</b>深度清灰、更换高导热硅脂，风扇轴承清理加油，顺手把电源模式从「节能」改回「高性能」。</div>
+          <div class="case-result">结果：满载温度 82℃，帧数稳定 · 用时 1.5 小时 · 150 元</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz data">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>备份建设</span></div>
+          <h3>视频工作室：素材放在 6 块移动硬盘里</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>没有发生过灾难，但素材分散、版本混乱，一块盘摔坏过一次，丢了两个项目。</div>
+          <div class="case-row"><b>判断过程</b>评估数据量约 26TB，日增量 200G 左右，需要「快取 + 归档 + 异地」三层。</div>
+          <div class="case-row"><b>处理方式</b>部署 8 盘位 NAS（RAID6），万兆链路接入剪辑机；设置每日增量备份与每周冷备盘异地存放；建立项目文件夹规范。</div>
+          <div class="case-result">结果：单盘故障不丢数据，误删可回滚 30 天 · 用时 4 天 · 按项目报价</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="person">
+        <div class="case-figure"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>个人用户</span><span class="dot"></span><span>换屏</span></div>
+          <h3>背包挤压导致屏幕碎裂，内有未交的论文</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>屏幕左上角放射状裂纹，显示有竖条，但外接显示器正常。</div>
+          <div class="case-row"><b>判断过程</b>外接显示正常，排除显卡与主板，判定为内屏损坏。</div>
+          <div class="case-row"><b>处理方式</b>先拆出硬盘把论文与资料备份到客户 U 盘；更换同规格原装屏，校准色彩与亮度。</div>
+          <div class="case-result">结果：显示正常无色差，资料完好 · 用时 1 天（等屏）· 680 元（含屏）</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz data urgent">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>服务器</span></div>
+          <h3>文件服务器 RAID5 掉两块盘，全公司停工</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>服务器报警，RAID5 阵列两块成员盘离线，共享盘无法访问。</div>
+          <div class="case-row"><b>判断过程</b>确认非同时在写，且未做过 rebuild；严禁直接重建，否则数据彻底作废。</div>
+          <div class="case-row"><b>处理方式</b>对全部成员盘做只读镜像，镜像上用虚拟 RAID 重组，导出数据到新阵列；随后重建为 RAID6 并加一块热备盘。</div>
+          <div class="case-result">结果：约 4.2TB 数据完整导出 · 用时 2 天 · 含新硬盘与重建</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="person">
+        <div class="case-figure"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>个人用户</span><span class="dot"></span><span>台式机</span></div>
+          <h3>台式机一股焦味后彻底不通电</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>使用中听到「啪」一声，冒出轻微白烟，之后按电源无任何反应。</div>
+          <div class="case-row"><b>判断过程</b>电源拆开可见滤波电容鼓包爆裂；进一步检查主板供电无明显击穿。</div>
+          <div class="case-row"><b>处理方式</b>更换 80Plus 铜牌 550W 电源，顺带清理机箱灰尘、重做走线；测试 24 小时烤机稳定。</div>
+          <div class="case-result">结果：正常使用，未波及主板与硬盘 · 用时 1 天 · 320 元（含电源）</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>网络改造</span></div>
+          <h3>诊所收银系统每天上午准时卡顿</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>每天 9:00-11:00 收银与叫号系统明显卡顿，其他时间正常。</div>
+          <div class="case-row"><b>判断过程</b>抓包发现高峰期有设备在做大流量下载，且全屋靠一台家用路由 + 两个廉价中继，漫游时断流。</div>
+          <div class="case-row"><b>处理方式</b>换成企业级路由 + 3 个吸顶 AP，划分访客网络与业务网络，给收银机做有线接入和带宽优先。</div>
+          <div class="case-result">结果：高峰期无卡顿，漫游不掉线 · 用时 1 天 · 按项目报价</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="person">
+        <div class="case-figure"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>个人用户</span><span class="dot"></span><span>安全清理</span></div>
+          <h3>父母电脑满屏弹窗，「客服」打电话说中病毒了</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>故障现象</b>桌面弹窗不断，浏览器首页被改，还接到冒充客服的诈骗电话要求远程控制。</div>
+          <div class="case-row"><b>判断过程</b>安装了 4 个捆绑「优化大师」类软件 + 2 个浏览器劫持插件，属于典型全家桶。</div>
+          <div class="case-row"><b>处理方式</b>卸载捆绑软件、清理浏览器快捷方式劫持、重置浏览器策略；装好正规杀软并关闭软件安装权限；把骗子号码拉黑。</div>
+          <div class="case-result">结果：弹窗与劫持全部清除，桌面恢复干净 · 用时 40 分钟 · 130 元</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>机房上架</span></div>
+          <h3>互联网公司 12 台服务器到货，运维人在外地</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>客户需求</b>12 台 2U 服务器已送到机房前台，要求在 2 天内完成上架、布线和系统初始化。</div>
+          <div class="case-row"><b>处理方式</b>开箱验货登记序列号 → 导轨安装、A/B 双路电源分接 → 万兆光模块与铜缆跳接 → iDRAC 配好带外地址 → 装 ESXi 并初始化 RAID10。</div>
+          <div class="case-result">结果：2 天完成全部上架，交付端口/IP 表，客户远程即可开关机 · 按台计价</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz urgent">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>机柜迁移</span></div>
+          <h3>电商公司整柜搬迁，只给 6 小时停机窗口</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>客户需求</b>从 A 机房搬到天津本地 B 机房，业务只能在凌晨停 6 小时，不能错接一根线。</div>
+          <div class="case-row"><b>处理方式</b>提前 3 天出设备清单与线序表、预配好跳线长度；0:00 停机拆线编号打包；到场按表复接，逐个口打光测试。</div>
+          <div class="case-result">结果：停机 5 小时 10 分完成恢复，零端口错接 · 含运输与夜间施工</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>旧机回收</span></div>
+          <h3>28 台旧办公电脑要处理，硬盘里全是客户资料</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>客户需求</b>公司换新机，28 台用了 4 年的台式机堆在仓库；硬盘里有财务账套和客户合同，卖给上门收废品的不放心。</div>
+          <div class="case-row"><b>处理方式</b>上门逐台登记序列号与配置 → 先导出 8 块仍需留档的硬盘数据 → 其余 20 块多次覆写后物理破坏 → 可用整机检测、按 CPU/内存/硬盘逐项折价。</div>
+          <div class="case-result">结果：28 台合计折价 4,200 元抵扣新机款，数据全部导出交付，出回收清单与销毁确认单 · 用时 1 天</div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-cat="biz">
+        <div class="case-figure biz"></div>
+        <div class="case-top">
+          <div class="case-meta"><span>企业客户</span><span class="dot"></span><span>网络与监控</span></div>
+          <h3>120㎡ 办公室，两个路由器还是处处断线</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row"><b>现场判断</b>承重墙加一排金属货架把信号挡住，两个家用路由器各自拨号、互相干扰；摄像头要覆盖门口与仓库，原计划走明线。</div>
+          <div class="case-row"><b>处理方式</b>勘测后定 3 个吸顶 AP（PoE 供电 + AC 统一管理）→ 弱电箱整理、办公与访客 VLAN 隔离 → 4 路摄像头 PoE 走吊顶到 NVR，设 30 天循环存储。</div>
+          <div class="case-result">结果：全区域信号稳定、走动漫游不掉线，4 路录像可存 30 天 · 2 天完工，交付点位图与账号清单</div>
+        </div>
+      </article>
+
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <p style="color:var(--muted);font-size:14.5px;">你的情况不在上面？直接打电话描述现象，我们免费帮你判断。</p>
+      <a class="btn btn-primary btn-lg" href="tel:+8613602028219">拨打 136-0202-8219</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight section--white">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>修电脑这件事，先问清楚再动手</h2>
+        <p>免费检测、先报价后维修、30 天保修（操作系统除外）。机房设备上下架按台计价，凭工单进场，含随工报告。</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-accent btn-lg" href="tel:+8613602028219">立即电话咨询</a>
+        <a class="btn btn-ghost btn-lg" href="contact.html" style="border-color:rgba(255,255,255,.4);background:transparent;color:#fff;">在线留言</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </span>
+          <span>小番茄电脑维修<small>TOMATO PC REPAIR</small></span>
+        </a>
+        <p>专注电脑维修与机房服务器上下架 12 年，服务天津全境。免费检测、先报价后维修、30 天保修（操作系统除外），市内六区 30 分钟上门。</p>
+      </div>
+      <div>
+        <h4>服务项目</h4>
+        <ul class="footer-links">
+          <li><a href="services.html#hardware">硬件故障维修</a></li>
+          <li><a href="services.html#system">系统与软件</a></li>
+          <li><a href="services.html#data">数据恢复</a></li>
+          <li><a href="services.html#upgrade">升级提速</a></li>
+          <li><a href="services.html#business">机房上下架服务</a></li>
+          <li><a href="services.html#recycle">旧机回收与二手整机</a></li>
+          <li><a href="services.html#network">网络与监控覆盖</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>快速链接</h4>
+        <ul class="footer-links">
+          <li><a href="cases.html">维修案例</a></li>
+          <li><a href="tips.html">维修技巧</a></li>
+          <li><a href="contact.html">在线报修</a></li>
+          <li><a href="services.html#price">价目表</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <a class="footer-phone" href="tel:+8613602028219">136-0202-8219</a>
+        <p style="margin:0 0 10px;font-size:13.5px;">每日 08:30 - 20:30<br>微信同号，可直接添加</p>
+        <p style="margin:0;font-size:13.5px;"><a href="mailto:771703598@qq.com" style="color:inherit;text-decoration:none;">771703598@qq.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 小番茄电脑维修 · 保留所有权利</span>
+      <span>天津全境上门 · 电脑维修与机房服务</span>
+    </div>
+  </div>
+</footer>
+
+<div class="fixed-call">
+  <a class="btn btn-primary" href="tel:+8613602028219">立即电话报修</a>
+  <a class="btn btn-ghost" href="contact.html">在线报修</a>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // 案例筛选
+  var btns = document.querySelectorAll('.filter-btn');
+  var cases = document.querySelectorAll('#case-grid .case');
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      cases.forEach(function (c) {
+        var cats = (c.getAttribute('data-cat') || '').split(' ');
+        var show = f === 'all' || cats.indexOf(f) !== -1;
+        c.classList.toggle('is-hidden', !show);
+      });
+    });
+  });
+</script>
+</body>
+</html>

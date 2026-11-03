@@ -1,0 +1,13 @@
+# 工作区数据（WorkBuddy 会话与记忆，不进入版本库）
+.workbuddy/
+
+# 系统与编辑器杂项
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# 本地临时文件
+*.log
+_shot_*.png

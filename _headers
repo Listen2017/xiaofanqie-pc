@@ -1,0 +1,23 @@
+# Cloudflare Pages 响应头配置
+# 语法参考：https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# 静态资源：文件名不带指纹，用 30 天缓存 + 允许回源校验，改版后能及时生效
+/assets/*
+  Cache-Control: public, max-age=2592000
+
+# HTML 不缓存，保证改了内容用户立刻看到
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 站点地图与 robots 短缓存
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  Cache-Control: public, max-age=3600
