@@ -800,6 +800,23 @@ li { margin-bottom: 6px; }
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
+/* ---------- 实拍图片画廊（首页 / 服务 / 技巧页） ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+.gallery figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.gallery img { width: 100%; height: 210px; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.gallery figure:hover img { transform: scale(1.04); }
+.gallery figcaption { padding: 12px 16px; font-size: 14px; color: var(--ink-2); font-weight: 600; }
+
+/* 案例卡片缩略图（由脚本按类别注入 <img>） */
+.case-figure img { width: 100%; height: 172px; object-fit: cover; display: block; }
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: 1fr; gap: 38px; }
@@ -878,7 +895,7 @@ input, select, textarea { font-size: 16px; }
 
 @media (max-width: 640px) {
   /* 整体字号与间距放大，提升可读性 */
-  body { font-size: 16px; padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  body { font-size: 15px; line-height: 1.62; padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   .container { padding: 0 18px; }
   .section { padding: 46px 0; }
   .section--tight { padding: 40px 0; }
@@ -886,15 +903,15 @@ input, select, textarea { font-size: 16px; }
   /* 主视觉 */
   .hero { padding: 34px 0 46px; }
   .hero h1 { font-size: clamp(1.7rem, 7.4vw, 2.4rem); }
-  .hero-lead { font-size: 16px; }
+  .hero-lead { font-size: 15px; }
   .hero-actions { gap: 10px; }
   .hero-actions .btn { width: 100%; }
 
-  .section-head p { font-size: 15.5px; }
+  .section-head p { font-size: 14.5px; }
 
   /* 卡片 / 面板 */
   .card { padding: 22px; }
-  .card p, .panel > p, .card ul, .panel ul { font-size: 15px; }
+  .card p, .panel > p, .card ul, .panel ul { font-size: 14px; }
   .panel { padding: 26px 22px; }
   .split { gap: 16px; }
 
@@ -908,7 +925,9 @@ input, select, textarea { font-size: 16px; }
   .stat span { font-size: 13px; }
 
   /* 案例 */
-  .case-row { font-size: 14.5px; }
+  .case-row { font-size: 14px; }
+  .article .body { font-size: 14.5px; }
+  .faq-item .a { font-size: 14px; }
 
   /* 表单：输入框放大到手指友好尺寸，字号 16px 防 iOS 缩放 */
   .form-row label { font-size: 14.5px; }

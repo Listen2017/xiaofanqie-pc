@@ -7,7 +7,9 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
 
-# 静态资源：文件名不带指纹，用 30 天缓存 + 允许回源校验，改版后能及时生效
+# 静态资源：文件名不带指纹，用 HTML 里的 ?v=YYYYMMDD 做版本号
+# ⚠️ 改完 style.css / main.js 必须把各页面 HTML 里的 ?v= 一起更新，
+#    否则边缘缓存 30 天内不会失效（新部署也不会自动清），用户会看到旧样式
 /assets/*
   Cache-Control: public, max-age=2592000
 
