@@ -231,6 +231,9 @@ export async function onRequestPost(context) {
   const channels = [];
   const errors = [];
 
+  // 自建应用三件套是否齐全（决定要不要走私聊通道）
+  const hasApp = Boolean(env.WECOM_CORP_ID && env.WECOM_CORP_SECRET && env.WECOM_AGENT_ID);
+
   // 通道一：群机器人（推荐）。企业微信「企业可信 IP」对群机器人不生效，Cloudflare 场景最容易跑通。
   if (env.WECOM_WEBHOOK) {
     try {
@@ -243,7 +246,6 @@ export async function onRequestPost(context) {
 
   // 通道二：自建应用私聊（可选）。需要三件套齐全；若应用配了「企业可信 IP」，
   // 会因 Cloudflare 出口 IP 不固定而报 60020，此时不阻断，靠群机器人送达即可。
-  const hasApp = Boolean(env.WECOM_CORP_ID && env.WECOM_CORP_SECRET && env.WECOM_AGENT_ID);
   if (hasApp) {
     try {
       await sendAppMessage(env, content);
@@ -275,7 +277,18 @@ export async function onRequestPost(context) {
     // 注意：不要返回 5xx。Cloudflare Pages 会把 Function 的 5xx 响应替换成
     // 它自己的 "error code: 502" 纯文本页，真实原因会被吃掉，排查起来非常痛苦。
     // 用 200 + ok:false 表达「已受理但没送达」，前端照样走降级逻辑。
-    return json({ ok: false, delivered: false, error: "推送失败，请直接电话联系" });
+    // diag 只暴露布尔值和错误码，不含 webhook 地址与密钥，方便线上定位配置问题。
+    const code = errors.length ? String(errors[0]).match(/errcode=(-?\d+)/) : null;
+    return json({
+      ok: false,
+      delivered: false,
+      error: "推送失败，请直接电话联系",
+      diag: {
+        webhookConfigured: Boolean(env.WECOM_WEBHOOK),
+        appConfigured: hasApp,
+        errcode: code ? Number(code[1]) : null,
+      },
+    });
   }
 
   return json({ ok: true, channels });
