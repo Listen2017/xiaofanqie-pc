@@ -272,7 +272,10 @@ export async function onRequestPost(context) {
       ? errors.join(" | ")
       : "未配置任何推送通道（WECOM_WEBHOOK 或 自建应用三件套）";
     console.error("lead delivery failed:", detail);
-    return json({ ok: false, error: "推送失败，请直接电话联系" }, 502);
+    // 注意：不要返回 5xx。Cloudflare Pages 会把 Function 的 5xx 响应替换成
+    // 它自己的 "error code: 502" 纯文本页，真实原因会被吃掉，排查起来非常痛苦。
+    // 用 200 + ok:false 表达「已受理但没送达」，前端照样走降级逻辑。
+    return json({ ok: false, delivered: false, error: "推送失败，请直接电话联系" });
   }
 
   return json({ ok: true, channels });
