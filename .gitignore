@@ -11,3 +11,9 @@ desktop.ini
 # 本地临时文件
 *.log
 _shot_*.png
+
+# 环境变量与密钥（企业微信 Secret 等，禁止入库）
+.dev.vars
+.env
+.env.*
+!.env.example

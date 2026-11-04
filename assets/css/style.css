@@ -632,7 +632,7 @@ li { margin-bottom: 6px; }
   border: 1px solid var(--line);
   border-radius: 10px;
   font-family: inherit;
-  font-size: 14.5px;
+  font-size: 16px;
   color: var(--ink);
   background: #fbfcff;
   transition: border-color 0.18s, box-shadow 0.18s;
@@ -646,6 +646,18 @@ li { margin-bottom: 6px; }
 .form-row textarea { resize: vertical; min-height: 96px; }
 .form-tip { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
 .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* 反垃圾蜜罐字段：对真人隐藏，机器人会填 */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
 
 /* 工作时间表 */
 .hours { width: 100%; border-collapse: collapse; font-size: 14.5px; }
@@ -788,6 +800,23 @@ li { margin-bottom: 6px; }
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
+/* ---------- 实拍图片画廊（首页 / 服务 / 技巧页） ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+.gallery figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.gallery img { width: 100%; height: 210px; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.gallery figure:hover img { transform: scale(1.04); }
+.gallery figcaption { padding: 12px 16px; font-size: 14px; color: var(--ink-2); font-weight: 600; }
+
+/* 案例卡片缩略图（由脚本按类别注入 <img>） */
+.case-figure img { width: 100%; height: 172px; object-fit: cover; display: block; }
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: 1fr; gap: 38px; }
@@ -837,4 +866,80 @@ li { margin-bottom: 6px; }
   .article .body { padding: 16px 18px 20px; }
   .faq-item .a { padding-left: 22px; }
   .header-cta .btn { padding: 10px 14px; font-size: 14px; }
+}
+
+/* =========================================================
+   移动端适配增强（2026-11 增补）
+   解决：iOS 输入框聚焦自动缩放、底部拨号栏遮挡、字号偏小、
+        点击目标过小、刘海屏安全区、意外横向溢出
+   ========================================================= */
+
+/* —— 全局基础修复（所有设备生效） —— */
+* { -webkit-tap-highlight-color: transparent; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+/* 输入框字号 ≥16px，避免 iOS Safari 聚焦时整页被放大 */
+input, select, textarea { font-size: 16px; }
+
+/* 刘海屏安全区适配（iPhone X 及以上） */
+.site-header { padding-top: env(safe-area-inset-top); }
+.fixed-call { padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+
+/* 价目表在窄屏固定价格列宽，避免价格被挤到换行 */
+@media (max-width: 640px) {
+  table.hours { table-layout: fixed; font-size: 14px; }
+  table.hours td { padding: 13px 0; vertical-align: top; }
+  table.hours td:first-child { padding-left: 14px; }
+  table.hours td:last-child { width: 94px; padding-right: 14px; text-align: right; white-space: nowrap; font-size: 13.5px; }
+}
+
+@media (max-width: 640px) {
+  /* 整体字号与间距放大，提升可读性 */
+  body { font-size: 15px; line-height: 1.62; padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .container { padding: 0 18px; }
+  .section { padding: 46px 0; }
+  .section--tight { padding: 40px 0; }
+
+  /* 主视觉 */
+  .hero { padding: 34px 0 46px; }
+  .hero h1 { font-size: clamp(1.7rem, 7.4vw, 2.4rem); }
+  .hero-lead { font-size: 15px; }
+  .hero-actions { gap: 10px; }
+  .hero-actions .btn { width: 100%; }
+
+  .section-head p { font-size: 14.5px; }
+
+  /* 卡片 / 面板 */
+  .card { padding: 22px; }
+  .card p, .panel > p, .card ul, .panel ul { font-size: 14px; }
+  .panel { padding: 26px 22px; }
+  .split { gap: 16px; }
+
+  /* 报修卡 */
+  .quote-card { padding: 20px; }
+  .quote-card .qc-sub, .qc-list li { font-size: 14.5px; }
+  .qc-phone .num { font-size: 1.4rem; }
+
+  /* 数据条 */
+  .stat b { font-size: 1.7rem; }
+  .stat span { font-size: 13px; }
+
+  /* 案例 */
+  .case-row { font-size: 14px; }
+  .article .body { font-size: 14.5px; }
+  .faq-item .a { font-size: 14px; }
+
+  /* 表单：输入框放大到手指友好尺寸，字号 16px 防 iOS 缩放 */
+  .form-row label { font-size: 14.5px; }
+  .form-row input, .form-row textarea, .form-row select { padding: 12px 14px; min-height: 48px; }
+  .form-tip { font-size: 13.5px; }
+
+  /* 点击目标放大到 ≥44px（手指友好） */
+  .menu-toggle { width: 44px; height: 44px; }
+  .filter-btn { min-height: 44px; }
+  .faq-item summary { min-height: 54px; }
+  .footer-links a { display: block; padding: 5px 0; }
+
+  /* 顶栏在极窄屏更紧凑 */
+  .topbar .container { font-size: 12px; }
 }

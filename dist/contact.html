@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>联系天津小番茄电脑维修｜报修电话 136-0202-8219</title>
 <meta name="description" content="天津小番茄电脑维修联系方式：报修电话 136-0202-8219（每日 08:30-20:30），微信同号，邮箱 771703598@qq.com。天津全境上门，可寄修，承接数据中心机房服务器上下架。">
 <meta name="keywords" content="电脑维修电话,电脑维修报修,附近电脑维修,电脑维修上门电话">
@@ -140,9 +140,14 @@
       <!-- 右：表单 -->
       <div class="contact-card reveal" id="repair">
         <h2 style="font-size:1.4rem;">在线报修 / 服务咨询</h2>
-        <p style="color:var(--muted);font-size:14.5px;">填完点提交，会生成一段报修信息，你可以直接复制发给我们微信，或按提示电话告知。工作时间内 5 分钟回电。</p>
+        <p style="color:var(--muted);font-size:14.5px;">填完点提交，信息会直接推送到我们的企业微信，工作时间内 5 分钟内回电。着急的话建议直接打电话——很多故障在电话里 1 分钟就能判断方向。</p>
 
         <form id="repair-form" novalidate>
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp_field">公司网址（请勿填写）</label>
+            <input id="hp_field" name="hp_field" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="form-2col">
             <div class="form-row">
               <label for="name">怎么称呼你 *</label>
@@ -180,18 +185,20 @@
             <input id="area" name="area" type="text" placeholder="例如：XX 区 XX 路 / 某某科技（机房客户请注明机房与台数）">
           </div>
 
-          <button class="btn btn-primary btn-block btn-lg" type="submit">生成报修信息</button>
-          <p class="form-tip">提交即表示你同意我们通过电话或微信与你联系。我们不会把你的信息用于其他用途。</p>
+          <button class="btn btn-primary btn-block btn-lg" type="submit">提交报修信息</button>
+          <p class="form-tip">提交即表示你同意我们通过电话或微信与你联系，信息仅用于本次报修，不做其他用途。</p>
         </form>
 
-        <div id="form-result" hidden style="margin-top:22px;padding:20px;background:#f6f9ff;border:1px solid #d9e4fb;border-radius:14px;">
-          <h3 style="font-size:1rem;margin-bottom:8px;">报修信息已生成</h3>
-          <p style="font-size:13.5px;color:var(--muted);margin-bottom:10px;">复制下面这段，发到微信 136-0202-8219，或直接读给接线同事听。</p>
-          <textarea id="summary-text" readonly style="width:100%;min-height:130px;padding:12px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:13.5px;background:#fff;color:var(--ink);resize:vertical;"></textarea>
-          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
-            <button class="btn btn-ghost" id="copy-summary" type="button" style="flex:1;">复制报修信息</button>
-            <a class="btn btn-accent" href="tel:+8613602028219" style="flex:1;">直接拨打</a>
+        <div id="form-result" role="status" aria-live="polite" hidden style="margin-top:22px;padding:20px;background:#f2fbf6;border:1px solid #c9ecd9;border-radius:14px;">
+          <h3 id="form-result-title" style="font-size:1rem;margin-bottom:8px;">已收到，马上安排回电</h3>
+          <p id="form-result-desc" style="font-size:13.5px;color:var(--muted);margin-bottom:10px;">报修信息已推送到我们的企业微信，工作时间内 5 分钟内会有同事回电。</p>
+
+          <div id="form-fallback" hidden>
+            <textarea id="summary-text" readonly style="width:100%;min-height:130px;padding:12px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:16px;background:#fff;color:var(--ink);resize:vertical;"></textarea>
+            <button class="btn btn-ghost btn-block" id="copy-summary" type="button" style="margin-top:10px;">复制报修信息</button>
           </div>
+
+          <a class="btn btn-accent btn-block" href="tel:+8613602028219" style="margin-top:12px;">直接拨打 136-0202-8219</a>
         </div>
       </div>
 
